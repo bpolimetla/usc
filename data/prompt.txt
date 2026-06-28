@@ -1,0 +1,20 @@
+
+write python script
+read each record from data.csv
+
+Prompt: check this record on google maps
+get google star rating, if rent is not presented find rent for 2x2 bed room. 
+dont assume any. 
+Find exact postal address 
+write data-enriched.csv file. 
+
+make one call for each line 
+
+----------
+Main College
+Olin Hall, 3650 McClintock Ave, Los Angeles, CA 90089
+
+Add distance column, calculate distance from each row and add. 
+Add driving time column, add driving time during monday 8 am. 
+
+--------------

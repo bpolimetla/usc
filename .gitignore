@@ -1,0 +1,21 @@
+# secrets
+set.sh
+
+
+
+# gstack / claude
+.gstack/
+.claude/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+
+# ui build artifacts
+ui/node_modules/
+ui/dist/
+ui/.vite/
+ui/.env
+ui/.env.local
+ui/.env.*.local
