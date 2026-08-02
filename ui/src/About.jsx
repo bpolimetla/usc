@@ -190,7 +190,7 @@ export default function About() {
 
         </Box>
 
-        <Footer isDark={isDark} />
+        <Footer />
       </Box>
     </ThemeProvider>
   );

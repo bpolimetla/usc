@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Box, Typography, IconButton, Tooltip, Drawer, Divider,
 } from "@mui/material";
@@ -15,13 +15,14 @@ import DownloadIcon     from "@mui/icons-material/Download";
 
 const NAV_ITEMS = [
   { to: "/",          Icon: HomeWorkIcon,  label: "Home" },
-  { to: "/apts",      Icon: MapIcon,       label: "Apartment Map" },
-  { to: "/apts-list", Icon: TableViewIcon, label: "Apartments List" },
+  { to: "/apts",      Icon: MapIcon,       label: "Map" },
+  { to: "/apts-list", Icon: TableViewIcon, label: "List" },
   { to: "/about",     Icon: InfoIcon,      label: "About" },
 ];
 
 export default function Header({ isDark, onToggleDark, onDownload, children }) {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
 
   const ctrlSx = {
     color: isDark ? "#8a8fa8" : "#5a6075",
@@ -60,6 +61,33 @@ export default function Header({ isDark, onToggleDark, onDownload, children }) {
           </Box>
         </Box>
 
+        {/* Desktop nav */}
+        <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 0.5, mx: 2, flexShrink: 0 }}>
+          {NAV_ITEMS.map(({ to, Icon, label }) => {
+            const active = pathname === to;
+            return (
+              <Box
+                key={to}
+                component={Link}
+                to={to}
+                sx={{
+                  display: "flex", alignItems: "center", gap: 0.6,
+                  px: 1.2, py: 0.5, borderRadius: 1.5,
+                  bgcolor: active ? "rgba(153,0,0,0.1)" : "transparent",
+                  border: active ? "1px solid rgba(153,0,0,0.4)" : "1px solid transparent",
+                  textDecoration: "none",
+                  color: active ? "#990000" : (isDark ? "#8a8fa8" : "#5a6075"),
+                  transition: "all .2s",
+                  "&:hover": { bgcolor: "rgba(153,0,0,0.08)", color: "#990000" },
+                }}
+              >
+                <Icon sx={{ fontSize: 15 }} />
+                <Typography sx={{ fontSize: "0.8rem", fontWeight: active ? 600 : 400, lineHeight: 1 }}>{label}</Typography>
+              </Box>
+            );
+          })}
+        </Box>
+
         {/* Middle — optional (search bars, chips, etc.) */}
         {children && (
           <Box sx={{ flex: 1, display: "flex", alignItems: "center", gap: 1, minWidth: 0, overflow: "visible" }}>
@@ -67,7 +95,7 @@ export default function Header({ isDark, onToggleDark, onDownload, children }) {
           </Box>
         )}
 
-        {/* Right — desktop */}
+        {/* Right — desktop controls */}
         <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 1, flexShrink: 0, ml: 1 }}>
           {onDownload && (
             <Tooltip title="Download CSV (includes your votes)">

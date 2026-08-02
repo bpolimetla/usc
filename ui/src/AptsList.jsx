@@ -373,7 +373,6 @@ export default function AptsList() {
         </Box>
 
         <Footer
-          isDark={isDark}
           rightContent={
             <Typography sx={{ fontSize: "0.7rem", color: "text.secondary" }}>
               {visibleRows.length} of {aptsRaw.length} apartments

@@ -405,7 +405,6 @@ export default function Apts() {
         </Box>
 
         <Footer
-          isDark={isDark}
           rightContent={
             <Typography sx={{ fontSize: "0.7rem", color: "text.secondary" }}>
               {mapMarkers.length} pins on map · {filteredApts.length - mapMarkers.length} without coordinates

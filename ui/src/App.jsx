@@ -133,7 +133,7 @@ export default function App() {
           </Box>
         </Box>
 
-        <Footer isDark={isDark} />
+        <Footer />
       </Box>
     </ThemeProvider>
   );
