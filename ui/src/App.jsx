@@ -6,6 +6,7 @@ import {
 import MapIcon from "@mui/icons-material/Map";
 import TableViewIcon from "@mui/icons-material/TableView";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
+import OilBarrelIcon from "@mui/icons-material/OilBarrel";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -46,6 +47,27 @@ const CARDS = [
     title: "Apartments List",
     desc: "Sortable, searchable table of all apartments with rent, star rating, distance, and Monday 8 AM drive time.",
     color: "#1565c0",
+  },
+  {
+    to: "/wells/la",
+    Icon: OilBarrelIcon,
+    title: "LA Oil & Gas Wells",
+    desc: "8,000+ oil and gas wells across Los Angeles County. Search by lease, operator, or field and inspect well details.",
+    color: "#990000",
+  },
+  {
+    to: "/wells/sfo",
+    Icon: OilBarrelIcon,
+    title: "SF Bay Area Oil & Gas Wells",
+    desc: "Oil and gas wells across the San Francisco Bay Area, plotted with status, operator, and field data.",
+    color: "#1565c0",
+  },
+  {
+    to: "/wells/san-diego",
+    Icon: OilBarrelIcon,
+    title: "San Diego Oil & Gas Wells",
+    desc: "Oil and gas wells across San Diego County, plotted with status, operator, and field data.",
+    color: "#2e7d32",
   },
 ];
 

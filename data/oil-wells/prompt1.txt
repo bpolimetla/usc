@@ -1,0 +1,11 @@
+
+In about page, add panel and display following.
+
+Source of Oils Wells Data:
+
+https://data.conservation.ca.gov/datasets/cadoc::wellstar-oil-and-gas-wells/about
+
+Extracted data specific to LA, SFO, Sandiego on August-2-2026
+
+How LA hides thousands of oil wells in plain sight
+https://www.youtube.com/watch?v=wPL4mNxY3Tw&t=839s

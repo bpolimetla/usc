@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import {
   Box, Typography, ThemeProvider, createTheme, CssBaseline, Paper, Divider,
 } from "@mui/material";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import { downloadCSV } from "./utils/download.js";
@@ -60,6 +61,32 @@ function BulletItem({ label, children }) {
       <BodyText>
         {label && <strong>{label}: </strong>}
         {children}
+      </BodyText>
+    </Box>
+  );
+}
+
+function LinkItem({ label, href, children }) {
+  return (
+    <Box sx={{ display: "flex", gap: 1.2, mb: 1.2, alignItems: "flex-start" }}>
+      <Box sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: "#990000", mt: "6px", flexShrink: 0 }} />
+      <BodyText>
+        {label && <strong>{label}: </strong>}
+        {children}{" "}
+        <Box
+          component="a"
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          sx={{
+            display: "inline-flex", alignItems: "center", gap: 0.4,
+            color: "#990000", textDecoration: "none", fontWeight: 600,
+            wordBreak: "break-all",
+            "&:hover": { textDecoration: "underline" },
+          }}
+        >
+          {href} <OpenInNewIcon sx={{ fontSize: 13 }} />
+        </Box>
       </BodyText>
     </Box>
   );
@@ -186,6 +213,48 @@ export default function About() {
             <BulletItem label="Open-Ended Dataset">
               Kept the framework flexible to accommodate new, unlisted apartments that fit the criteria as research continues.
             </BulletItem>
+          </Paper>
+
+          {/* ── Section 3: Oil & Gas Wells Data ── */}
+          <Paper elevation={0} sx={{
+            p: { xs: 2.5, sm: 4 }, mb: 4,
+            border: `1px solid ${isDark ? "#1e2130" : "#e8eaf0"}`,
+            borderRadius: 3,
+          }}>
+            <SectionHeader>Source of Oil & Gas Wells Data</SectionHeader>
+
+            <LinkItem
+              label="Dataset"
+              href="https://data.conservation.ca.gov/datasets/cadoc::wellstar-oil-and-gas-wells/about"
+            >
+              WellSTAR — California Department of Conservation, Geologic Energy Management Division (CalGEM).
+            </LinkItem>
+            <BulletItem label="Extraction Date">
+              Data specific to Los Angeles, the SF Bay Area, and San Diego was extracted on August 2, 2026.
+            </BulletItem>
+
+            <SubHeader>Related Reading</SubHeader>
+            <LinkItem
+              label="Video"
+              href="https://www.youtube.com/watch?v=wPL4mNxY3Tw&t=839s"
+            >
+              How LA hides thousands of oil wells in plain sight.
+            </LinkItem>
+
+            <Box sx={{
+              mt: 1.5, borderRadius: 2, overflow: "hidden",
+              border: `1px solid ${isDark ? "#1e2130" : "#e8eaf0"}`,
+              position: "relative", width: "100%", pt: "56.25%",
+            }}>
+              <Box
+                component="iframe"
+                src="https://www.youtube.com/embed/wPL4mNxY3Tw?start=839"
+                title="How LA hides thousands of oil wells in plain sight"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                sx={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
+              />
+            </Box>
           </Paper>
 
         </Box>

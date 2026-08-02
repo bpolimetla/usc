@@ -12,11 +12,13 @@ import Brightness7Icon  from "@mui/icons-material/Brightness7";
 import MenuIcon         from "@mui/icons-material/Menu";
 import CloseIcon        from "@mui/icons-material/Close";
 import DownloadIcon     from "@mui/icons-material/Download";
+import OilBarrelIcon    from "@mui/icons-material/OilBarrel";
 
 const NAV_ITEMS = [
   { to: "/",          Icon: HomeWorkIcon,  label: "Home" },
   { to: "/apts",      Icon: MapIcon,       label: "Map" },
   { to: "/apts-list", Icon: TableViewIcon, label: "List" },
+  { to: "/wells/la",  Icon: OilBarrelIcon, label: "LA Oil Wells" },
   { to: "/about",     Icon: InfoIcon,      label: "About" },
 ];
 
